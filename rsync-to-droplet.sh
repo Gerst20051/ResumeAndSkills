@@ -7,4 +7,4 @@ rsync -zarvh resume/ droplet:www/resume
 # update the skills directory
 
 rsync -zarvh skills/ droplet:www/skills
-ssh droplet ln -s ../favicon.ico www/skills/favicon.ico
+ssh droplet ln -s ../favicon.ico www/skills/favicon.ico 2>/dev/null
