@@ -81,8 +81,13 @@ body {
 		margin-top:0;
 	}
 
-	#fullSkillsList {
+	#searchContainer,
+	#showCategoriesContainer {
 		display:none;
+	}
+
+	#categoriesContainer {
+		display:block;
 	}
 }
 
