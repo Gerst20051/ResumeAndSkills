@@ -7,8 +7,10 @@
     "[url]https://github.com/Gerst20051[/url]",
     "[url]https://linkedin.com/in/andrewgerst[/url]"
   ],
-  "statement": [
-    "I am extremely self-motivated and eager to work and you won't regret giving me a chance!",
+  "statement": "If you are looking for the perfect engineer then I am not a good fit however there is not a single thing I can't or haven't been able to accomplish throughout my entire 11+ year career. My unmatched [i]perspicacity[/i] and work ethic, hustle-and-grind mentality, resourcefulness, [i]indefatigability[/i], and pure determination make me an extremely valuable engineer while also being a [i]collaborative[/i] teammate prioritizing the needs of the business and my colleagues.",
+  "statements": [
+    "I need a job [i]asap[/i]! My bank account balance is [i]negative[/i]! I'm fine with work trials and contracting!",
+    "I am extremely [i]self-motivated[/i], adaptable, and personable fostering strong working relationships!",
     "I was Checkr's 4th engineer working on international expansion and rapidly scaling our team!",
     "I was Passport's 5th engineer contributing to every single functionality of the platform imaginable!"
   ],
@@ -43,22 +45,22 @@
       "highlights": {
         "Major Product Enhancements": [
           "Led the creation of multiple new screenings that expanded our product capabilities",
-          "Led the implementation of Amplitude analytics that significantly improved our product insights",
-          "Created a Ruby on Rails platform that dramatically reduced the complexity of building new screenings",
+          "Led the implementation of [b]Amplitude[/b] analytics that significantly improved our product insights",
+          "Created a [b]Ruby on Rails[/b] platform that dramatically reduced the complexity of building new screenings",
           "Reduced developer frustration and technical debt by unifying multiple divergent products",
           "Improved candidate experience by removing the need to print and fill out PDF documents",
-          "Improved screening TAT by creating jobs that monitored and resolved stuck workflows",
-          "Created Datadog monitors and Snowflake dashboards to improve observability",
-          "Mentored our summer interns and helped lead their project to completion",
-          "Many other things including React/TypeScript front-end projects..."
+          "Improved screening TAT by creating [b]Cron/Rake/Temporal[/b] jobs to monitor and resolve stuck workflows",
+          "Created [b]Datadog[/b] monitors and [b]Snowflake/Looker[/b] dashboards to improve observability",
+          "Mentored our summer interns and led the project from inception to prod deployment",
+          "Many other things including [b]React/TypeScript[/b] front-end projects..."
         ],
         "Improved Developer Productivity (Above & Beyond My Role Responsibilities)": [
           "Reduced the time 50+ engineers spent onboarding from weeks down to hours",
           "Created scripts to set up and run multiple services in a local dev environment",
           "Ensured a smooth transition from Intel to ARM based MacBook architecture",
           "Created scripts automating workflows that required manual interactions",
-          "Created Bash shell scripts to ease the administration of our Kubernetes clusters",
-          "Created Ruby Thor scripts that automated various on-call support tasks"
+          "Created [b]Bash[/b] shell scripts to ease the administration of our [b]Kubernetes[/b] clusters",
+          "Created [b]Ruby Thor[/b] scripts that automated various on-call support tasks"
         ]
       }
     },
@@ -67,7 +69,7 @@
       "organization": "[url=https://www.brainbase.com]Brainbase[/url] | Intellectual Property Platform",
       "startDate": "May 2020",
       "endDate": "September 2020",
-      "responsibilities": "Containerized services for Docker and made improvements to both our frontend (Angular) and backend (PHP/Laravel)"
+      "responsibilities": "Containerized apps to [b]Docker[/b] and made improvements for both our frontend ([b]Angular[/b]) and backend ([b]PHP/Laravel[/b])"
     },
     {
       "title": "Senior Software Engineer",
@@ -76,10 +78,10 @@
       "endDate": "April 2020",
       "highlights": {
         "Modernized & Scaled Architecture": [
-          "Led the creation of a Node/TypeScript platform enabling integrations with our public API",
-          "Migrated our legacy PHP monolith to microservices using AWS Lambda and Node/TypeScript",
-          "Migrated our databases from MySQL to DynamoDB for improved performance",
-          "Migrated our web apps to React/TypeScript and our iOS apps to Swift"
+          "Led the creation of a [b]Node/TypeScript[/b] platform enabling integrations with our public API",
+          "Migrated our legacy [b]PHP[/b] monolith to microservices using [b]AWS Lambda[/b] and [b]Node/TypeScript[/b]",
+          "Migrated our databases from [b]MySQL[/b] to [b]DynamoDB[/b] for improved performance",
+          "Migrated our web apps to [b]React/TypeScript[/b] and our [b]iOS[/b] apps to [b]Swift[/b]"
         ],
         "Promoted A High-Performance Culture": [
           "Interviewed candidates for roles up to VP of Engineering",
@@ -89,36 +91,38 @@
           "Mentored peers and was a highly available, trusted source for advice and pair programming"
         ],
         "Core Business Expertise": [
-          "Lead maintainer of our Python rate engine, a critical component for facilitating payments",
+          "Lead maintainer of our [b]Python[/b] rate engine, a critical component for facilitating payments",
           "Built custom mobile and web apps for 20+ of our high-volume clients in a scalable way",
           "Implemented third-party integrations to satisfy RFP requirements to win new clients",
-          "Added i18n support in our apps so that we could expand to markets internationally",
-          "Built integrations with our in-house PCI-compliant payment gateway service"
+          "Added [b]i18n[/b] support in our apps so that we could expand to markets internationally",
+          "Built integrations with our in-house [b]PCI[/b]-compliant payment gateway service"
         ],
         "Additional Accomplishments": [
-          "Developed the legacy monolith system using Python, PHP, and MySQL",
-          "Developed the legacy mobile apps using Titanium and Java",
-          "Developed the legacy web apps using jQuery and GWT/Java",
+          "Developed the legacy monolith system using [b]Python[/b], [b]PHP[/b], and [b]MySQL[/b]",
+          "Developed the legacy mobile apps using [b]Titanium[/b] and [b]Java[/b]",
+          "Developed the legacy web apps using [b]jQuery[/b] and [b]GWT/Java[/b]",
           "Developed the legacy strings system to handle internationalization",
-          "Developed the SMS/IVR Twilio integrations to support users without smartphones",
-          "Maintained the iOS Swift apps through multiple Swift versions",
+          "Developed the SMS/IVR [b]Twilio[/b] integrations to support users without smartphones",
+          "Maintained the iOS [b]Swift[/b] apps through multiple Swift versions",
           "Automated the build and archive process for iOS App Store releases",
-          "Created the white label apps on Android, Titanium, Swift, and Web platforms",
-          "Created the Vagrant dev environment influencing our shift towards infrastructure as code (IaC)",
-          "Created the Ansible playbook for efficiently configuring and maintaining engineer MacBooks",
-          "Created the modern rate engine on AWS Lambda using Node/TypeScript and DynamoDB",
-          "Analyzed data and created visualizations for various metrics using Snowflake",
-          "Created various shared NPM packages to use in multiple microservices",
+          "Created the white label apps on [b]Android[/b], [b]Titanium[/b], [b]Swift[/b], and Web platforms",
+          "Developed the apps for enforcement officers to monitor using [b]LPR[/b] to issue and print citations",
+          "Created the [b]Vagrant[/b] dev environment influencing our shift towards infrastructure as code ([b]IaC[/b])",
+          "Created the [b]Ansible[/b] playbook for efficiently configuring and maintaining engineer MacBooks",
+          "Created the modern rate engine on [b]AWS[/b] Lambda using [b]Node/TypeScript[/b] and [b]DynamoDB[/b]",
+          "Analyzed data and created visualizations for various metrics using [b]Snowflake[/b]",
+          "Created various shared [b]NPM[/b] packages to use across multiple microservices",
           "Transformed and imported the zone, rate, and restriction data for multiple cities",
           "Created comparison scripts to ensure backwards compatibility when versioning APIs",
           "Created API integration testing scripts to verify services are deployed and running correctly",
           "Led the creation of the wallet payment system for fleets of vehicles used by UPS and FedEx",
+          "Created an integration with [b]Lob[/b] to look up address information and mail collection letters",
           "Load and stress-tested the APIs to measure and improve performance metrics",
           "Implemented the process and scripts for safely handling database migrations",
-          "Created the Makefile that automated our legacy local dev environment",
-          "Created the Swagger OpenAPI Schema to document our APIs",
-          "Rewrote the iOS parking app from Titanium to Swift",
-          "Created the iOS transit app in Swift",
+          "Created the [b]Makefile[/b] that automated our legacy local dev environment",
+          "Created the [b]Swagger[/b] OpenAPI Schema to document our APIs",
+          "Migrated the iOS parking app from [b]Titanium[/b] to [b]Swift[/b]",
+          "Created the iOS transit app in [b]Swift[/b]",
           "Various other things..."
         ]
       }

@@ -164,6 +164,13 @@ ResumeBuilder.prototype.addTitleModule = function(){
 	}
 	html.push('</div>');
 	html.push('</div>');
+	if (data.statements && data.statements.length) {
+		html.push('<div id="statementList" class="clear">');
+		html.push('<ul>');
+		html.push('<li>' + data.statements.join('</li><li>') + '</li>');
+		html.push('</ul>');
+		html.push('</div>');
+	}
 	if (data.statement && data.statement.length) {
 		var isStatementString = typeof data.statement === 'string';
 		var statementId = isStatementString ? 'statementString' : 'statementList';
