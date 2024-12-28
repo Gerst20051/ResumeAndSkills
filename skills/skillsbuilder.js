@@ -202,7 +202,7 @@ SkillsBuilder.prototype.buildSkills = function(){
 	html.push('<button id="showCategoriesBtn">Show Categories</button>');
 	html.push('</div>');
 	html.push('<div id="hideCategoriesContainer">');
-	html.push('<button id="hideCategoriesLink">Hide Categories</button>');
+	html.push('<button id="hideCategoriesBtn">Hide Categories</button>');
 	html.push('</div>');
 	html.push('</div>');
 	this.output.push(html.join(''));
@@ -223,7 +223,7 @@ SkillsBuilder.prototype.addClickHandlers = function(){
 		$('#categoriesContainer').show();
 		$('#hideCategoriesContainer').show();
 	});
-	$(this.selector).on('click', '#hideCategoriesLink', function(e){
+	$(this.selector).on('click', '#hideCategoriesBtn', function(e){
 		e.preventDefault();
 		$('#hideCategoriesContainer').hide();
 		$('#categoriesContainer').hide();

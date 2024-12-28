@@ -46,6 +46,11 @@ body {
 	text-align:center;
 }
 
+#showCategoriesBtn,
+#hideCategoriesBtn {
+	cursor: pointer;
+}
+
 #hideCategoriesContainer {
 	display:none;
 }
