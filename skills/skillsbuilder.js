@@ -30,6 +30,7 @@ var SkillsBuilder = function(){
 		this.clearOutput();
 		this.parseData();
 		this.buildHeader();
+		this.buildSearch();
 		this.buildSkills();
 		this.printSkills();
 	};
@@ -149,11 +150,17 @@ SkillsBuilder.prototype.addSubSkills = function(skills){
 	});
 };
 
-SkillsBuilder.prototype.buildSkills = function(){
+SkillsBuilder.prototype.buildSearch = function(){
 	var html = [];
 	html.push('<div id="searchContainer">');
 	html.push('<input id="skillsSearch" name="skillsSearch" type="text" spellcheck="false" value="' + this.search + '" />');
 	html.push('</div>');
+	this.output.push(html.join(''));
+};
+
+SkillsBuilder.prototype.buildSkills = function(){
+	var html = [];
+	html.push('<div id="skillsModule">');
 	html.push('<div id="rankingsContainer">');
 	html.push('<div class="skillsHeader">' + this.capitalizeSkill('Rankings') + '</div>');
 	this.rankedSkills.forEach((rankSkills, rank) => {
@@ -163,7 +170,7 @@ SkillsBuilder.prototype.buildSkills = function(){
 			matchingSkills = rankSkills.filter(skill => skill.toLowerCase().match(this.search));
 		}
 		if (!matchingSkills.length) return;
-		html.push('<div id="skillsModule" class="skillsmodule clear">');
+		html.push('<div class="skillsmodule clear">');
 		html.push('<div class="leftcol"><div>' + this.convertRankToLabel(rank) + '</div></div>');
 		html.push('<div class="rightcol">' + this.addSubSkills(matchingSkills).join(', ') + '</div>');
 		html.push('</div>');
@@ -177,17 +184,18 @@ SkillsBuilder.prototype.buildSkills = function(){
 			matchingSkills = this.taggedSkills[taggedSkill].filter(skill => skill.toLowerCase().match(this.search));
 		}
 		if (!matchingSkills.length) return;
-		html.push('<div id="skillsModule" class="skillsmodule clear">');
+		html.push('<div class="skillsmodule clear">');
 		html.push('<div class="leftcol"><div>' + this.capitalizeSkill(taggedSkill) + '</div></div>');
 		html.push('<div class="rightcol">' + this.addSubSkills(matchingSkills).join(', ') + '</div>');
 		html.push('</div>');
 	});
 	html.push('</div>');
 	html.push('<div id="showCategoriesContainer">');
-	html.push('<a id="showCategoriesLink" href="#">Show Categories</a>');
+	html.push('<button id="showCategoriesBtn">Show Categories</button>');
 	html.push('</div>');
 	html.push('<div id="hideCategoriesContainer">');
-	html.push('<a id="hideCategoriesLink" href="#">Hide Categories</a>');
+	html.push('<button id="hideCategoriesLink">Hide Categories</button>');
+	html.push('</div>');
 	html.push('</div>');
 	this.output.push(html.join(''));
 };
@@ -201,7 +209,7 @@ SkillsBuilder.prototype.printSkills = function(){
 
 SkillsBuilder.prototype.addClickHandlers = function(){
 	var _this = this;
-	$(this.selector).on('click', '#showCategoriesLink', function(e){
+	$(this.selector).on('click', '#showCategoriesBtn', function(e){
 		e.preventDefault();
 		$('#showCategoriesContainer').hide();
 		$('#categoriesContainer').show();
@@ -215,7 +223,13 @@ SkillsBuilder.prototype.addClickHandlers = function(){
 	});
 	$(this.selector).on('input', '#skillsSearch', function(e){
 		_this.search = e.target.value.toLowerCase();
-		_this.reset()
+		_this.clearOutput();
+		_this.buildSkills();
+		var shouldShowCategories = $('#hideCategoriesContainer').is(':visible');
+		$('#skillsModule').replaceWith(_this.output.join(''));
+		if (shouldShowCategories) {
+			$('#showCategoriesBtn').click();
+		}
 	});
 };
 
