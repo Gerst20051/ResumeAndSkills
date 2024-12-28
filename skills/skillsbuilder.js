@@ -161,8 +161,7 @@ SkillsBuilder.prototype.buildSearch = function(){
 SkillsBuilder.prototype.buildSkills = function(){
 	var html = [];
 	html.push('<div id="skillsModule">');
-	html.push('<div id="rankingsContainer">');
-	html.push('<div class="skillsHeader">' + this.capitalizeSkill('Rankings') + '</div>');
+	var rankedSkillsOutput = [];
 	this.rankedSkills.forEach((rankSkills, rank) => {
 		if (rank === 0 && this.data.settings.skip_zero_rank) return;
 		let matchingSkills = rankSkills;
@@ -170,26 +169,35 @@ SkillsBuilder.prototype.buildSkills = function(){
 			matchingSkills = rankSkills.filter(skill => skill.toLowerCase().match(this.search));
 		}
 		if (!matchingSkills.length) return;
-		html.push('<div class="skillsmodule clear">');
-		html.push('<div class="leftcol"><div>' + this.convertRankToLabel(rank) + '</div></div>');
-		html.push('<div class="rightcol">' + this.addSubSkills(matchingSkills).join(', ') + '</div>');
-		html.push('</div>');
+		rankedSkillsOutput.push('<div class="skillsmodule clear">');
+		rankedSkillsOutput.push('<div class="leftcol"><div>' + this.convertRankToLabel(rank) + '</div></div>');
+		rankedSkillsOutput.push('<div class="rightcol">' + this.addSubSkills(matchingSkills).join(', ') + '</div>');
+		rankedSkillsOutput.push('</div>');
 	});
-	html.push('</div>');
-	html.push('<div id="categoriesContainer">');
-	html.push('<div class="skillsHeader">' + this.capitalizeSkill('Categories') + '</div>');
+	if (rankedSkillsOutput.length) {
+		html.push('<div id="rankingsContainer">');
+		html.push('<div class="skillsHeader">' + this.capitalizeSkill('Rankings') + '</div>');
+		html.push(...rankedSkillsOutput);
+		html.push('</div>');
+	}
+	var taggedSkillsOutput = [];
 	Object.keys(this.taggedSkills).sort().forEach(taggedSkill => {
 		let matchingSkills = this.taggedSkills[taggedSkill];
 		if (this.search.length) {
 			matchingSkills = this.taggedSkills[taggedSkill].filter(skill => skill.toLowerCase().match(this.search));
 		}
 		if (!matchingSkills.length) return;
-		html.push('<div class="skillsmodule clear">');
-		html.push('<div class="leftcol"><div>' + this.capitalizeSkill(taggedSkill) + '</div></div>');
-		html.push('<div class="rightcol">' + this.addSubSkills(matchingSkills).join(', ') + '</div>');
-		html.push('</div>');
+		taggedSkillsOutput.push('<div class="skillsmodule clear">');
+		taggedSkillsOutput.push('<div class="leftcol"><div>' + this.capitalizeSkill(taggedSkill) + '</div></div>');
+		taggedSkillsOutput.push('<div class="rightcol">' + this.addSubSkills(matchingSkills).join(', ') + '</div>');
+		taggedSkillsOutput.push('</div>');
 	});
-	html.push('</div>');
+	if (taggedSkillsOutput.length) {
+		html.push('<div id="categoriesContainer">');
+		html.push('<div class="skillsHeader">' + this.capitalizeSkill('Categories') + '</div>');
+		html.push(...taggedSkillsOutput);
+		html.push('</div>');
+	}
 	html.push('<div id="showCategoriesContainer">');
 	html.push('<button id="showCategoriesBtn">Show Categories</button>');
 	html.push('</div>');
