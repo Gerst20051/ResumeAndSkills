@@ -30,15 +30,19 @@
 var myresume = new ResumeBuilder();
 myresume.config("#doc");
 
+var hash = window.location.hash.slice(1);
+if (hash.includes('?')) {
+    hash = hash.substring(0, hash.indexOf('?'));
+}
 var resumename = 'andrew';
 var yearpath = '';
 
-if (window.location.hash) {
-    var hash = window.location.hash.slice(1).replace(/\d/g, '');
-    if (hash.length && -1 === ['andrewgerst', 'andrew', 'gerst', 'agerst'].indexOf(hash)) {
-        resumename = hash;
+if (hash) {
+    var name = hash.replace(/\d/g, '');
+    if (name.length && -1 === ['andrewgerst', 'andrew', 'gerst', 'agerst'].indexOf(hash)) {
+        resumename = name;
     }
-    var year = window.location.hash.slice(1).replace(/\D/g, '');
+    var year = hash.replace(/\D/g, '');
     if (year) {
         yearpath = '-' + year;
     }

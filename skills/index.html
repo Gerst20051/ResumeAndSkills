@@ -35,15 +35,19 @@
 var myskills = new SkillsBuilder();
 myskills.config("#doc");
 
+var hash = window.location.hash.slice(1);
+if (hash.includes('?')) {
+    hash = hash.substring(0, hash.indexOf('?'));
+}
 var skillsname = 'andrew';
 var yearpath = '';
 
-if (window.location.hash) {
-    var hash = window.location.hash.slice(1).replace(/\d/g, '');
-    if (hash.length && -1 === ['andrewgerst', 'andrew', 'gerst', 'agerst'].indexOf(hash)) {
-        skillsname = hash;
+if (hash) {
+    var name = hash.replace(/\d/g, '');
+    if (name.length && -1 === ['andrewgerst', 'andrew', 'gerst', 'agerst'].indexOf(hash)) {
+        skillsname = name;
     }
-    var year = window.location.hash.slice(1).replace(/\D/g, '');
+    var year = hash.replace(/\D/g, '');
     if (year) {
         yearpath = '-' + year;
     }

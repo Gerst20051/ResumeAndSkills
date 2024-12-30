@@ -109,7 +109,7 @@
           "Developed the apps for enforcement officers to monitor using [b]LPR[/b] to issue and print citations",
           "Created the [b]Vagrant[/b] dev environment influencing our shift towards infrastructure as code ([b]IaC[/b])",
           "Created the [b]Ansible[/b] playbook for efficiently configuring and maintaining engineer MacBooks",
-          "Created the modern rate engine on [b]AWS[/b] Lambda using [b]Node/TypeScript[/b] and [b]DynamoDB[/b]",
+          "Created the modern rate engine on [b]AWS Lambda[/b] using [b]Node/TypeScript[/b] and [b]DynamoDB[/b]",
           "Analyzed data and created visualizations for various metrics using [b]Snowflake[/b]",
           "Created various shared [b]NPM[/b] packages to use across multiple microservices",
           "Transformed and imported the zone, rate, and restriction data for multiple cities",

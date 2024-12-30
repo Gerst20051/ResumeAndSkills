@@ -14,16 +14,22 @@ var SkillsBuilder = function(){
 	this.taggedSkills = {};
 	this.selector = '';
 	this.search = '';
+	this.searchRaw = '';
+	this.show = false;
 	this.output = [];
 
 	this.config = function(selector){
 		this.selector = selector;
+		this.parseQueryString();
 		return this;
 	};
 
 	this.run = function(){
 		this.reset();
 		this.addClickHandlers();
+		if (this.show) {
+			$('#showCategoriesBtn').click();
+		}
 	};
 
 	this.reset = function(){
@@ -33,6 +39,16 @@ var SkillsBuilder = function(){
 		this.buildSearch();
 		this.buildSkills();
 		this.printSkills();
+	};
+
+	this.parseQueryString = function(){
+		var urlParams = new URLSearchParams(location.search || location.hash.slice(location.hash.indexOf('?')));
+		var searchParam = urlParams.get('search');
+		this.show = urlParams.has('show');
+		if (searchParam) {
+			this.search = searchParam.toLowerCase();
+			this.searchRaw = searchParam;
+		}
 	};
 };
 
@@ -153,7 +169,7 @@ SkillsBuilder.prototype.addSubSkills = function(skills){
 SkillsBuilder.prototype.buildSearch = function(){
 	var html = [];
 	html.push('<div id="searchContainer">');
-	html.push('<input id="skillsSearch" name="skillsSearch" type="text" spellcheck="false" value="' + this.search + '" />');
+	html.push('<input id="skillsSearch" name="skillsSearch" type="text" spellcheck="false" value="' + this.searchRaw + '" />');
 	html.push('</div>');
 	this.output.push(html.join(''));
 };
@@ -222,20 +238,23 @@ SkillsBuilder.prototype.addClickHandlers = function(){
 		$('#showCategoriesContainer').hide();
 		$('#categoriesContainer').show();
 		$('#hideCategoriesContainer').show();
+		_this.show = true;
 	});
 	$(this.selector).on('click', '#hideCategoriesBtn', function(e){
 		e.preventDefault();
 		$('#hideCategoriesContainer').hide();
 		$('#categoriesContainer').hide();
 		$('#showCategoriesContainer').show();
+		_this.show = false;
 	});
 	$(this.selector).on('input', '#skillsSearch', function(e){
 		_this.search = e.target.value.toLowerCase();
+		_this.searchRaw = e.target.value;
 		_this.clearOutput();
 		_this.buildSkills();
 		var shouldShowCategories = $('#hideCategoriesContainer').is(':visible');
 		$('#skillsModule').replaceWith(_this.output.join(''));
-		if (shouldShowCategories) {
+		if (shouldShowCategories) { // can just check _this.show
 			$('#showCategoriesBtn').click();
 		}
 	});
