@@ -124,7 +124,7 @@
           "Implemented the process and scripts for safely handling database migrations",
           "Created the [b]Makefile[/b] that automated our legacy local dev environment",
           "Created an integration with [b]Cashtie[/b] enabling cash payments for tolling",
-          "Created the [b]Swagger[/b] OpenAPI Schema to document our APIs",
+          "Created the [b]Swagger OpenAPI[/b] Schema to document our APIs",
           "Migrated the iOS parking app from [b]Titanium[/b] to [b]Swift[/b]",
           "Created the iOS transit app in [b]Swift[/b]",
           "A million other things..."
