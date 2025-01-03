@@ -84,7 +84,11 @@ SkillsBuilder.prototype.uncapitalizeSkill = function(skill){
 	if (getKeyByValue(this.skillMap, skill)) {
 		return getKeyByValue(this.skillMap, skill);
 	}
-	return skill.toLowerCase().replace(' ', '-');
+	const lowercaseSkill = skill.toLowerCase();
+	if (this.data.skills[lowercaseSkill]) {
+		return lowercaseSkill;
+	}
+	return lowercaseSkill.replaceAll(' ', '-');
 };
 
 SkillsBuilder.prototype.clearOutput = function(){
@@ -103,6 +107,13 @@ SkillsBuilder.prototype.parseData = function(){
 		skills.forEach(skill => {
 			var capitalizedSkill = this.capitalizeSkill(skill);
 			var metadata = data.skills[skill];
+			var parent_skills = [];
+			if (metadata.parent_skills) {
+				parent_skills = metadata.parent_skills;
+			}
+			if (metadata.parent_skill) {
+				parent_skills.push(metadata.parent_skill);
+			}
 			if (metadata.rank) {
 				if (!this.rankedSkills[metadata.rank]) {
 					this.rankedSkills[metadata.rank] = [];
@@ -117,6 +128,14 @@ SkillsBuilder.prototype.parseData = function(){
 						this.taggedSkills[tag] = [];
 					}
 					this.taggedSkills[tag].push(capitalizedSkill);
+				});
+			}
+			if (parent_skills.length) {
+				parent_skills.forEach(parentSkill => {
+					if (!this.data.skills[parentSkill].skills) {
+						this.data.skills[parentSkill].skills = [];
+					}
+					this.data.skills[parentSkill].skills.push(skill);
 				});
 			}
 			// console.log(skill, metadata);
@@ -157,10 +176,12 @@ SkillsBuilder.prototype.convertRankToLabel = function(rank){
 };
 
 SkillsBuilder.prototype.addSubSkills = function(skills){
-	return skills.map(skill => {
+	return skills.sort().map(skill => {
 		const skillKey = this.uncapitalizeSkill(skill);
-		if (this.data.skills[skillKey] && this.data.skills[skillKey].skills) {
-			return `${skill} (${this.data.skills[skillKey].skills.map(this.capitalizeSkill.bind(this)).join(', ')})`;
+		const thisSkill = this.data.skills[skillKey];
+		const skillTitle = thisSkill.description || '';
+		if (thisSkill && thisSkill.skills) {
+			return `<span title="${skillTitle}">${skill} [${thisSkill.skills.map(this.capitalizeSkill.bind(this)).join(', ')}]</span>`;
 		}
 		return skill;
 	});
