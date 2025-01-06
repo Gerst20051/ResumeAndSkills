@@ -183,7 +183,7 @@ SkillsBuilder.prototype.addSubSkills = function(skills){
 		if (thisSkill && thisSkill.skills) {
 			return `<span title="${skillTitle}">${skill} [${thisSkill.skills.map(this.capitalizeSkill.bind(this)).join(', ')}]</span>`;
 		}
-		return skill;
+		return `<span title="${skillTitle}">${skill}</span>`;
 	});
 };
 
