@@ -135,7 +135,9 @@ SkillsBuilder.prototype.parseData = function(){
 					if (!this.data.skills[parentSkill].skills) {
 						this.data.skills[parentSkill].skills = [];
 					}
-					this.data.skills[parentSkill].skills.push(skill);
+					if (!this.data.skills[parentSkill].skills.includes(skill)) {
+						this.data.skills[parentSkill].skills.push(skill);
+					}
 				});
 			}
 			// console.log(skill, metadata);
@@ -176,14 +178,18 @@ SkillsBuilder.prototype.convertRankToLabel = function(rank){
 };
 
 SkillsBuilder.prototype.addSubSkills = function(skills){
-	return skills.sort().map(skill => {
+	return skills.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())).map(skill => {
+		let skillLabelOutput = [skill];
 		const skillKey = this.uncapitalizeSkill(skill);
 		const thisSkill = this.data.skills[skillKey];
 		const skillTitle = thisSkill.description || '';
 		if (thisSkill && thisSkill.skills) {
-			return `<span title="${skillTitle}">${skill} [${thisSkill.skills.map(this.capitalizeSkill.bind(this)).join(', ')}]</span>`;
+			skillLabelOutput.push(`[${thisSkill.skills.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())).map(this.capitalizeSkill.bind(this)).join(', ')}]`);
 		}
-		return `<span title="${skillTitle}">${skill}</span>`;
+		if (thisSkill && thisSkill.versions) {
+			skillLabelOutput.push(`{${thisSkill.versions.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())).map(this.capitalizeSkill.bind(this)).join(', ')}}`);
+		}
+		return `<span title="${skillTitle}">${skillLabelOutput.join(' ')}</span>`;
 	});
 };
 
