@@ -152,7 +152,12 @@
     {
       "name": "My Games",
       "url": "[url]http://games.hnswave.co[/url]",
-      "desc": "I enjoy building browser-based games in my free time using a game engine I wrote from scratch."
+      "desc": "I enjoy building browser-based games in my free time using a [b]canvas[/b] game engine I wrote from scratch."
+    },
+    {
+      "name": "My Skills",
+      "url": "[url=http://skills.hnswave.co/?show]http://skills.hnswave.co[/url]",
+      "desc": "I am working on ranking and categorizing all 1000+ of the technologies I've been exposed to throughout my career."
     }
   ]
 }

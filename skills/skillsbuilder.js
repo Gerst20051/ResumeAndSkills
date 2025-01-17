@@ -219,7 +219,7 @@ SkillsBuilder.prototype.buildSkills = function(){
 	});
 	if (rankedSkillsOutput.length) {
 		html.push('<div id="rankingsContainer">');
-		html.push('<div class="skillsHeader">' + this.capitalizeSkill('Rankings') + '</div>');
+		html.push('<div class="skillsHeader">' + this.capitalizeSkill('Rankings') + ' (WIP)</div>');
 		html.push(...rankedSkillsOutput);
 		html.push('</div>');
 	}
